@@ -4,5 +4,8 @@
 
 ## Moduuli 1
 
-Tein hello.py tiedoston
+Tein tehtävät 1 ja 2.
 
+## Moduuli 3
+
+Tein kaikki moduulin 3 tehtävät.

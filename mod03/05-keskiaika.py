@@ -1,8 +1,12 @@
-leiviskat = float(input("Anna leiviskät.\n"))
-naulat = float(input("\nAnna naulat.\n")) + leiviskat*20
-luodit = float(input("\nAnna luodit.\n")) + naulat*32
+leiviskat = input("Anna leiviskät.\n")
+naulat = input("\nAnna naulat.\n")
+luodit = input("\nAnna luodit.\n")
 
-massa = luodit * 13.3
+leiviskat = float(leiviskat)
+naulat = float(naulat)
+luodit = float(luodit)
+
+massa = ((leiviskat * 20 + naulat) * 32 + luodit) * 13.3
 
 kilot = massa // 1000
 grammat = massa % 1000

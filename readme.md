@@ -21,3 +21,7 @@ Tein kaikki moduulin 5 tehtävät.
 ## Moduuli 6
 
 Tein kaikki moduulin 6 tehtävät.
+
+## Moduuli 7
+
+Tein kaikki moduulin 6 tehtävät.

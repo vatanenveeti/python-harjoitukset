@@ -28,4 +28,4 @@ Tein kaikki moduulin 7 tehtävät.
 
 ## Moduuli 8
 
-Tehtävät 1 ja 2 tehty.
+Tehtävät 1, 2 ja 3 tehty.

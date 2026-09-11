@@ -29,3 +29,7 @@ Tein kaikki moduulin 7 tehtävät.
 ## Moduuli 8
 
 Tehtävät 1, 2 ja 3 tehty.
+
+## Moduuli 9
+
+Tein kaikki moduulin 9 tehtävät.

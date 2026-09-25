@@ -6,10 +6,14 @@ class Hissi:
 
     def kerros_ylös(self):
         self.nykyinen_kerros += 1
+        if self.nykyinen_kerros > self.ylin_kerros:
+            self.nykyinen_kerros = self.ylin_kerros
         print(f"Hissi on kerroksessa {self.nykyinen_kerros}")
 
     def kerros_alas(self):
         self.nykyinen_kerros -= 1
+        if self.nykyinen_kerros < self.alin_kerros:
+            self.nykyinen_kerros = self.alin_kerros
         print(f"Hissi on kerroksessa {self.nykyinen_kerros}")
 
 

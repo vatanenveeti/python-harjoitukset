@@ -1,10 +1,7 @@
 class Pelaaja:
-    def __init__(self, nimi, ikä, esineet, sijainti, elämäpisteet):
+    def __init__(self, nimi, sijainti):
         self.nimi = nimi
-        self.ikä = ikä
-        self.esineet = esineet
         self.sijainti = sijainti
-        self.hp = elämäpisteet
 
     def liiku(self, kohde):
         self.sijainti = kohde

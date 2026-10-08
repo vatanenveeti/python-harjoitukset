@@ -1,29 +1,32 @@
 import json
 
 from pelaaja import Pelaaja
-from maailma import Alue, Maailma
+from maailma import Maailma
 
 class Peli:
-
     def __init__(self, pelaajan_nimi):
+        #luo maailman
         self.maailma = Maailma()
-        
+        #luo pelaaja-olion
         self.pelaaja = Pelaaja(pelaajan_nimi, self.maailma.aloitus_alue)
 
         self.intro()
         input()
         self.päävalikko()
-
+    
+    #tulostaa intron intro-tiedostosta
     def intro(self):
         with open("intro.txt", "r", encoding="utf-8") as tiedosto:
             intro_teksti = tiedosto.read()
             print(intro_teksti)
-
+    
+    #tarkistaa annetun komennon
     def tarkista_komento(self,komento, mahdolliset_komennot):
         while komento not in mahdolliset_komennot:
             komento = input("Virheellinen komento, anna uusi.\n")
         return komento
-
+    
+    #pelin päävalikko
     def päävalikko(self):
         print("Päävalikko\n1. Aloita\n2. Ohjeet\n3. Lopeta")
             
@@ -37,11 +40,13 @@ class Peli:
             self.ohjeet()
         if komento == "3":
             self.lopeta()
-
+    
+    #lopettaa pelin
     def lopeta(self):
         print("Suljetaan peli.")
         quit()
-
+    
+    #tulostaaa ohjeet ohjeet-tiedostosta
     def ohjeet(self):
         print()
         with open("ohjeet.txt", "r", encoding="utf-8") as ohje:
@@ -51,6 +56,7 @@ class Peli:
         input()
         self.päävalikko()
 
+    #valikko pelin aloittamiseen tai lataamiseen
     def aloitussivu(self):
         print("Valitse toiminto.")
         print("1. Uusi peli\n2. Lataa peli\n3. Takaisin")
@@ -65,6 +71,7 @@ class Peli:
         if komento == "3":
             self.päävalikko()
 
+    #tarkistaa onko tallennusta jo ja aloittaa pelin
     def uusi_peli(self):
         with open("tallennukset.json", "r") as tiedosto:
             tallennus_data = json.load(tiedosto)
@@ -81,10 +88,12 @@ class Peli:
         else:
             self.aloita_peli()
 
+    #lataa aikaisemman tallennuksen
     def lataa_peli(self):
         with open("tallennukset.json", "r") as tiedosto:
             tallennus_data = json.load(tiedosto)
         if tallennus_data["tallennustila"] == "täysi":
+            print("Ladataan peli...\n")
             for alue in self.maailma.alueet:
                 if alue.nimi == tallennus_data["pelaaja"]["sijainti"]:
                     sijainti = alue
@@ -95,6 +104,7 @@ class Peli:
             input()
             self.aloitussivu()
 
+    #tallentaa pelin tilanteen tiedostoon
     def tallenna_peli(self):
 
         nykyinen_sijanti = self.pelaaja.sijainti.nimi
@@ -111,6 +121,7 @@ class Peli:
             json.dump(tallennus_data, tiedosto, indent=4)
         print("Tallennettu onnistuneesti.")
         
+    #aloittaa pelin
     def aloita_peli(self):
         print("Peli alkaa...")
         input()
@@ -124,18 +135,21 @@ class Peli:
         input()
         self.pelin_kierto()
 
+    #käynnistää pelin silmukan
     def pelin_kierto(self):
         pelitilanne = "kesken"
         while pelitilanne != "läpi":
+            if self.pelaaja.sijainti.viimeinen_alue == "kyllä":
+                pelitilanne = "läpi"
             self.käynnistä_alue(self.pelaaja.sijainti)
-
+        print(f"\nKiitos {self.pelaaja.nimi}, kun pelasit pelini!")
             
-            
+    #käynnistää nykyisen alueen/tilanteen        
     def käynnistä_alue(self,alue):
         alue.esittele_alue()
         input()
         if len(alue.seuraavat_alueet) > 1:
-            print("Minkä suunnan valitset?")
+            print("Minkä valitset?")
             nro = 1
             for seuraava in alue.seuraavat_alueet:
                 print(f"{nro}. {seuraava.nimi}")
@@ -152,7 +166,8 @@ class Peli:
             if komento == "3":
                 self.tallenna_peli()
                 self.lopeta()
-        else:
+        elif len(alue.seuraavat_alueet) == 1:
             self.pelaaja.liiku(alue.seuraavat_alueet[0])
+        
         
 

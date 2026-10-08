@@ -1,22 +1,23 @@
-# Tekstiseikkailupeli
+# Sakari ja kadonnut villapaita
 **Veeti Vatanen**
 
-## projektitehtävä 1
 
-Tehty onnistuneesti
+## Pelin idea ja tavoite
 
-## projektitehtävä 2
+Sakari ja kadonnut villapaita -pelissä tavoite on etsiä sakarin kadonnut villapaita. Tarina sai vahvasti inspiraatiota Sakarin villapaita -pelistä. Peli on yksinkertainen tekstiseikkailupeli, jossa edetään "huoneittain" eteenpäin. Pelaaja saa valita kahdesta vaihtoehdosta, miten Sakari etenee pelissä. Pelin voi voittaa ainoastaan löytämällä villapaidan. Pelillä on 8 eri lopputulemaa, joista vain yhdellä voittaa.
 
-Tehty onnistuneesti
+## Toimintaperiaatteet ja toiminnallisuudet
 
-## projektitehtävä 3
+Peli käynnistetään ajamalla main-tiedosto. Pelin tekstit on tallennettu teksti-tiedostoihin. Main-tiedoston lisäksi pelillä on peli, pelaaja ja maailma -tiedostot. Pelissä tallenetut tiedostot kirjoitetaan json-tiedostoon. Json-tiedostoon tallennetaan vain pelaajan nimi ja sijainti sekä sillä on tieto siitä, onko edellistä tallennusta vai ei.
 
-Tein pelille muutamia funktioita: päävalikon, ohjeet, pelin lopettaminen, aloitussivun, esineiden valinnan, tavaraluettelon sekä pelin jatkamisen.
+Main tiedosto alustaa tallennustiedoston, kysyy pelaajan nimen ja iän sekä aloittaa itse pelin luomalla Peli-olion. Se voi myös sulkea pelin, jos pelaaja on alle 12v. Peli-olio on koko pelin ydin. Se luo Maailma-olion ja Pelaaja-olion. Peli luo terminaaliin kaikki valikot, lataa ja tallentaa pelin sekä aloittaa pelin. 
 
-## projektitehtävä 4 
+Itse peli toimii yksinkertaisella silmukalla, jonka luo pelin_kierto()-funktio. Funktio tarkistaa aina onko pelitilanne “läpi”. Jos pelitilanne on “kesken”, se suorittaa käynnistä_alue()-funktion. Käynnistä_alue()-funktio esittelee pelin alueen/tilanteen ja antaa mahdollisuuden valita seuraavan alueen. Alueet ovat omia olioita, jotka on luodaan maailma-tiedostossa. Niille on määritelty omat nimet, esittelytekstit, onko viimeinen alue ja seuraavat alueet. Kaikki esittelytekstit on tallennettu samaan tekstitiedostoon. Kun päästään alueelle, joka on viimeinen alue, peli päättyy ja ohjelma sulkeutuu. Pelaaja-olio tallentaa vain nimen ja sijainnin sekä sen ainoa funktio on vaihtaa sijaintia. Maaailma-olio luo pelin maailman, alueet ja yhdistää alueet alueiden määrittele_alueet()-funktion avulla. 
 
-Koitin järjestää projektia jotenkin järkevästi moduuleihin, mutta se on vielä aika sekava. Pakettia en vielä luonut, koska en kokenut sitä tarpeelliseksi vielä, kun projekti niin alussa. Ajattelin että mahdolliset viholliset voisi laittaa myöhemmin samaan pakettiin. Nyt loin vain erilliset tiedostot pelaajalle, esineille sekä huoneille. Myöhemmin ajattelin luoda ainakin valikolle oman tiedoston. Pelin rakenne on vielä sekava ja se täytyy korjata kokonaan. Eikä sisältöäkään oikein ole.
+## Kestävä kehitys pelissä
 
-## projektitehtävä 5 
+Kestävä kehitys on otettu melko huonosti huomioon pelissä, koska tajusin aika myöhään, että sen näkökulma on otettava huomioon. Pelissä otetaan huomioon ainoastaan Vastuullista kuluttamista -osa-alue, joka näkyy vain siten, että Sakari ei halua hukata villapaitaa vaan säilyttää sen.
 
-Loin projektille intro.txt sekä ohjeet.txt, joista ohjelma ottaa tekstit terminaaliin. Peli tallentaa json-tiedostoon tällä hetkellä pelaajan nimen sekä sijainnin nimen. Kun ladataan peli, luodaan uusi pelaaja-olio näiden avulla ja peli jatkuu viimeisimmästä sijainnista. Pelin käynnistyessä kysytään halutaanko luoda uusi peli ja jos on edellinen tallennus jo olemassa, varoitetaan sen menettämisestä.
+## Kehitettävää
+
+Pelissä on mielestäni paljon kehitettävää, sillä se on todella yksinkertainen ja sisällöltään ei kovin kummoinen. Toisaalta se sopii “Sakarin villapaita” -teemaan. Jos minulla olisi ollut enemmän aikaa tehdä peliä, olisin halunnut tehdä alueihin erillaisia toimintoja ja mahdollisesti jonkin taistelumekaniikan. Nyt siinä vain yksinkertaisesti edetään alueesta alueeseen. Pelisilmukka ja alueet olivat myös luotu siten, että niihin on melko vaikea lisätä muuta sisältöä ellei halua muokata koodia merkittävästi.

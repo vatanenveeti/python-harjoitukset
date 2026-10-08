@@ -1,1 +1,4 @@
-Täältä löytyy ohjeet, mutta niitä ei ole juuri nyt.
+Sakari ja kadonnut villapaita -peli on yksinkertainen tekstiseikkailupeli.
+Pelissä edetään kirjoittamalla valinnan numero terminaaliin tai painamalla
+enter-näppäintä mikäli valintamahdollisuutta ei ole.
+Pelin voittaa löytämällä villapaidan.

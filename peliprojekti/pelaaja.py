@@ -3,8 +3,6 @@ class Pelaaja:
         self.nimi = nimi
         self.sijainti = sijainti
 
+    #vaihtaa pelaajan sijaintia
     def liiku(self, kohde):
         self.sijainti = kohde
-
-    def lisää_esine(self, esine):
-        self.esineet.append(esine)
